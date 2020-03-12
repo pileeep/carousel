@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+}
+.slider-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.slider-container > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.slider-container > div > div {
+  overflow: hidden;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.62);
+  border-radius: 10px;
+}
+.slider {
+  width: 800px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: repeat(10, 100%);
+}
+.img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+.img.active {
+  opacity: 1;
+}
+
+.img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.content {
+  position: absolute;
+  width: 800px;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem 1.2rem;
+  border-radius: 5px;
+  background-color: #ddd;
+  opacity: 0.3;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#prev {
+  left: 5%;
+}
+#next {
+  right: 5%;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+ul {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  display: flex;
+}
+ul li {
+  width: 13px;
+  height: 13px;
+  margin: 0.3rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+ul li.colored {
+  background: rgba(255, 255, 255, 0.7);
+}
+ul li:hover {
+  transform: scale(1.5);
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.bg {
+  position: absolute;
+  width: 120%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+.bg.show {
+  opacity: 1;
+}
